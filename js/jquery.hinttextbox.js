@@ -10,7 +10,8 @@
 (function($) {
   $.fn.hinttextbox = function(configs){
     var defaults = {
-          text: null
+          text: null,
+          color: null
         };
     if (!configs) return;
     configs = $.extend(defaults, configs);
@@ -36,7 +37,8 @@
     function set() {
       var val = $textbox.val();
       if (val && val != configs.text) return;
-      $textbox.val(configs.text).css('color', '#999999');
+      $textbox.val(configs.text)
+      if (configs.color) $textbox.css('color', configs.color);
     }
 
     function unset() {
